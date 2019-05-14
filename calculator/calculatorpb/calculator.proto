@@ -29,6 +29,14 @@ message ComputeAverageResponse{
     double average = 1;
 }
 
+message FindMaximunResquest{
+    int32 number = 1;
+}
+
+message FindMaximunResponse{
+    int32 maximun = 1;
+}
+
 service CalculatorService{
     //unary
     rpc Sum(SumRequest) returns (SumResponse){};
@@ -39,4 +47,7 @@ service CalculatorService{
 
     //client streaming
     rpc ComputeAverage (stream ComputeAverageRequest) returns (ComputeAverageResponse){};
+
+    //BiDirection streaming
+    rpc FindMaximun (stream FindMaximunResquest) returns (stream FindMaximunResponse){};
 }
